@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Intent;
 
 import com.parse.LogInCallback;
 import com.parse.Parse;
@@ -25,8 +26,6 @@ public class login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Parse.initialize(this, "ECxO8Nf9zz6aUN5dHiXpX3tdsNF5RJJXTaRkNNyD", "sebcxnq3HbaCJiT0vQsX7SYtaJzaGBil8GSqhnU6");
-
         usernameEditText = (EditText) findViewById(R.id.username);
         passwordEditText = (EditText) findViewById(R.id.password);
 
@@ -39,23 +38,22 @@ public class login extends AppCompatActivity {
         });
 
 
-        ParseUser currentUser = ParseUser.getCurrentUser();
-        currentUser.logOut();
-
-        /*
-        ParseUser user = new ParseUser();
-        user.setUsername("lukas");
-        user.setPassword("pass");
-        user.signUpInBackground(new SignUpCallback() {
+        Button signupButton = (Button) findViewById(R.id.signup_button);
+        signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void done(ParseException e) {
-                if (e != null) {
-                    Toast.makeText(login.this, e.toString(), Toast.LENGTH_LONG).show();
-
-                }
+            public void onClick(View v) {
+                Intent intent = new Intent(login.this, signup.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
             }
         });
+
+
+        /*
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        currentUser.logOut();
         */
+
 
 
     }

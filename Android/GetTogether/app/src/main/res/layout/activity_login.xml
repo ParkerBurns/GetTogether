@@ -30,6 +30,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <Button
+        android:id="@+id/signup_button"
+        android:hint="Sign Up"
+        android:layout_marginTop="900px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 
 
 </LinearLayout>
