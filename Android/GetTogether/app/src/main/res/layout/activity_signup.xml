@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    tools:context="com.example.gettogether.gettogether.login">
+    tools:context="com.example.gettogether.gettogether.signup">
 
     <EditText
         android:id="@+id/username"
@@ -16,7 +16,7 @@
         android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/password1"
         android:hint="Enter Password"
         android:maxLines="1"
         android:singleLine="true"
@@ -24,9 +24,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <EditText
+        android:id="@+id/password2"
+        android:hint="Verify Password"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <Button
-        android:id="@+id/login_button"
-        android:hint="Login"
+        android:id="@+id/action_button"
+        android:hint="Create Account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
