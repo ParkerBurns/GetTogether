@@ -26,7 +26,7 @@
 
     <EditText
         android:id="@+id/password2"
-        android:hint="Verify Password"
+        android:hint="Confirm Password"
         android:maxLines="1"
         android:singleLine="true"
         android:inputType="textPassword"

@@ -26,9 +26,11 @@ public class login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
         usernameEditText = (EditText) findViewById(R.id.username);
         passwordEditText = (EditText) findViewById(R.id.password);
 
+        //login() when button pressed
         Button actionButton = (Button) findViewById(R.id.login_button);
         actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,11 +39,12 @@ public class login extends AppCompatActivity {
             }
         });
 
-
+        //Signup button
         Button signupButton = (Button) findViewById(R.id.signup_button);
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Go to signup activity
                 Intent intent = new Intent(login.this, signup.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);

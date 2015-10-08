@@ -14,6 +14,7 @@ import com.parse.SignUpCallback;
 
 public class signup extends AppCompatActivity {
 
+    //UI element variables
     private EditText usernameEditText;
     private EditText password1EditText;
     private EditText password2EditText;
@@ -23,10 +24,12 @@ public class signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+        //UI elements set to variables
         usernameEditText = (EditText) findViewById(R.id.username);
         password1EditText = (EditText) findViewById(R.id.password1);
         password2EditText = (EditText) findViewById(R.id.password2);
 
+        //Signup button
         Button actionButton = (Button) findViewById(R.id.action_button);
         actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +44,8 @@ public class signup extends AppCompatActivity {
 
 
     private void create_account() {
+
+        //Get string from text inputs
         String username = usernameEditText.getText().toString().trim();
         String password1 = password1EditText.getText().toString().trim();
         String password2 = password2EditText.getText().toString().trim();
@@ -48,6 +53,7 @@ public class signup extends AppCompatActivity {
         String error = null;
 
 
+        //Checking if valid user and pass
         if (username.length() == 0) {
             error = "Error: Username required";
         } else if (password1.length() == 0) {
@@ -61,16 +67,20 @@ public class signup extends AppCompatActivity {
             return;
         }
 
-
+        //Create new user
         ParseUser user = new ParseUser();
         user.setUsername(username);
         user.setPassword(password1);
+
+        //Sign up user
         user.signUpInBackground(new SignUpCallback() {
             @Override
             public void done(ParseException e) {
                 if (e != null) {
+                    //Sign up error
                     Toast.makeText(signup.this, e.toString(), Toast.LENGTH_LONG).show();
                 } else {
+                    //Go to login activity
                     Intent intent = new Intent(signup.this, login.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
