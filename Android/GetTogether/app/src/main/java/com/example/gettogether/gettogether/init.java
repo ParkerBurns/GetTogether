@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.parse.Parse;
 import com.parse.ParseUser;
+import com.parse.ParseInstallation;
 
 public class init extends AppCompatActivity {
 
@@ -16,7 +17,10 @@ public class init extends AppCompatActivity {
         setContentView(R.layout.activity_init);
 
         //Init Parse
+        Parse.enableLocalDatastore(this);
         Parse.initialize(this, "ECxO8Nf9zz6aUN5dHiXpX3tdsNF5RJJXTaRkNNyD", "sebcxnq3HbaCJiT0vQsX7SYtaJzaGBil8GSqhnU6");
+        ParseInstallation.getCurrentInstallation().saveInBackground();
+
 
         //Check if user is logged in
         ParseUser currentUser = ParseUser.getCurrentUser();
