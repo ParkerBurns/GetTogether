@@ -5,11 +5,33 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    tools:context="com.example.gettogether.gettogether.login">
+    tools:context="com.example.gettogether.gettogether.login"
+    android:background="#031924">
+
+    <ImageView
+        android:layout_width="194dp"
+        android:layout_height="176dp"
+        android:id="@+id/imageView2"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/logo2"
+        android:layout_marginTop="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="experience."
+        android:textSize="98px"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#FFF" />
 
     <EditText
         android:id="@+id/username"
-        android:hint="Enter Username"
+        android:hint="username"
+        android:layout_marginTop="18dp"
+        android:textStyle="italic"
+        android:textColorHint="#70FFFFFF"
         android:maxLines="1"
         android:singleLine="true"
         android:layout_width="match_parent"
@@ -17,7 +39,10 @@
 
     <EditText
         android:id="@+id/password"
-        android:hint="Enter Password"
+        android:hint="password"
+        android:textColorHint="#70FFFFFF"
+        android:fontFamily=""
+        android:textStyle="italic"
         android:maxLines="1"
         android:singleLine="true"
         android:inputType="textPassword"
@@ -27,8 +52,19 @@
     <Button
         android:id="@+id/login_button"
         android:hint="Login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_width="198dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="#FF944D" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&quot;Die with memories not dreams.&quot;"
+        android:id="@+id/textView3"
+        android:textColor="#FFF"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="80dp" />
 
     <Button
         android:id="@+id/signup_button"
