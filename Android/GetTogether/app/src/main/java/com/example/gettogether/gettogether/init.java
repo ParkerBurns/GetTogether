@@ -21,13 +21,17 @@ public class init extends AppCompatActivity {
         Parse.initialize(this, "ECxO8Nf9zz6aUN5dHiXpX3tdsNF5RJJXTaRkNNyD", "sebcxnq3HbaCJiT0vQsX7SYtaJzaGBil8GSqhnU6");
         ParseInstallation.getCurrentInstallation().saveInBackground();
 
+        /*
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        currentUser.logOut();
+        */
 
         //Check if user is logged in
         ParseUser currentUser = ParseUser.getCurrentUser();
         if (currentUser != null) {
             //User is logged in, go to main activity
             Toast.makeText(init.this, currentUser.getUsername(), Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(init.this, main.class);
+            Intent intent = new Intent(init.this, user_list.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
 

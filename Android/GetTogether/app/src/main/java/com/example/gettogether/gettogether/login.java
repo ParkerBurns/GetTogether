@@ -1,6 +1,7 @@
 package com.example.gettogether.gettogether;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -51,25 +52,24 @@ public class login extends AppCompatActivity {
             }
         });
 
-
-        /*
-        ParseUser currentUser = ParseUser.getCurrentUser();
-        currentUser.logOut();
-        */
-
-
-
     }
 
     private void login() {
         String username = usernameEditText.getText().toString().trim();
         String password = passwordEditText.getText().toString().trim();
 
+        final ProgressDialog login_progress = ProgressDialog.show(this, null, "Please Wait");
+
+
         ParseUser.logInInBackground(username, password, new LogInCallback() {
             @Override
             public void done(ParseUser parseUser, ParseException e) {
+                login_progress.dismiss();
                 if (e == null) {
-                    Toast.makeText(login.this, "Success", Toast.LENGTH_LONG).show();
+
+                    Intent intent = new Intent(login.this, user_list.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(login.this, e.toString(), Toast.LENGTH_LONG).show();
                 }
